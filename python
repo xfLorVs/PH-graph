@@ -1,0 +1,29 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+
+class Graph:
+    def __init__(self):
+        self.graf = nx.Graph()
+    def add_node(self, node):
+        self.graf.add_node(node)
+    def add_edge(self, a, b):
+        self.graf.add_edge(a, b)
+    def draw(self):
+        nx.draw(
+            self.graf,
+            with_labels=True,
+            node_color="lightblue",
+            node_size=1000
+        )
+        plt.show()
+graf = Graph()
+n = int(input("Введите количество вершин: "))
+for i in range(n):
+    graf.add_node(i + 1)
+m = int(input("Введите количество рёбер: "))
+for i in range(m):
+    print(f"Ребро {i + 1}:")
+    a = int(input("  Первая вершина: "))
+    b = int(input("  Вторая вершина: "))
+    graf.add_edge(a, b)
+graf.draw()
